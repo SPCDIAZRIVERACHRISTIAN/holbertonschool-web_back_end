@@ -4,14 +4,14 @@ This directory contains Python scripts that demonstrate the use of variable anno
 
 ## Files
 
-- `0-add.py: Contains code that performs addition of numbers.
-- `1-concat.py: Contains code that performs concatenation of strings or other data types.
-- `2-floor.py: Contains code that performs the floor operation on a number.
-- `3-to_str.py: Contains code that converts a variable to a string representation.
-- `4-define_varaibles.py: Contains code that defines variables in a programming language.
-- `5-sum_list.py: Contains code that calculates the sum of a list of numbers.
-- `6-sum_mixed_list.py: Contains code that calculates the sum of a mixed list of numbers.
-- `7-to_kv.py: defines: Contains a function to convert a dictionary into a list of key-value tuples.
+- `0-add.py`: Contains code that performs addition of numbers.
+- `1-concat.py`: Contains code that performs concatenation of strings or other data types.
+- `2-floor.py`: Contains code that performs the floor operation on a number.
+- `3-to_str.py`: Contains code that converts a variable to a string representation.
+- `4-define_varaibles.py`: Contains code that defines variables in a programming language.
+- `5-sum_list.py`: Contains code that calculates the sum of a list of numbers.
+- `6-sum_mixed_list.py`: Contains code that calculates the sum of a mixed list of numbers.
+- `7-to_kv.py`: defines: Contains a function to convert a dictionary into a list of key-value tuples.
 - `8-make_multiplier.py`: Contains a function that returns a function to multiply a float by a given multiplier.
 - `9-element_length.py`: Contains a function that returns a list of tuples, each containing an element from the input iterable and its length.
 
