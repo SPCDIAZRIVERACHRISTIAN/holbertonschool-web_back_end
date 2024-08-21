@@ -75,4 +75,3 @@ class Server:
         }
 
         return hyper_dict
-
