@@ -26,6 +26,7 @@ class Server:
 
         return self.__dataset
 
+    @staticmethod
     def get_page(self, page: int = 1, page_size:
                  int = 10) -> typing.List[typing.List]:
         """Returns a page of the dataset"""
