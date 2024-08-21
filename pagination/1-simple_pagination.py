@@ -40,6 +40,7 @@ class Server:
 
         return dataset[start_index:end_index]
 
+    @staticmethod
     def index_range(page: int, page_size: int) -> typing.Tuple[int, int]:
         """Returns a tuple of size two containing
         a start index and an end index"""
