@@ -40,6 +40,21 @@ class Server:
         return self.__indexed_dataset
 
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
+            assert type(index) == int and index >= 0
+            assert type(page_size) == int and index < len(self.indexed_dataset())
+
+            csv = self.indexed_dataset()
+            data = []
+            next_index = index
+
+            for item in range(page_size):
+                while not csv.get(next_index):
+                    next_index += 1
+                data.append(csv.get(next_index))
+                next_index += 1
             return {
-                "index": ,
+            "index": index,
+            "data": data,
+            "page_size": page_size,
+            "next_index": next_index
             }
