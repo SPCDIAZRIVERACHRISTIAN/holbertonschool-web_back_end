@@ -29,10 +29,8 @@ class Server:
     def get_page(self, page: int = 1, page_size:
                  int = 10) -> typing.List[typing.List]:
         """Returns a page of the dataset"""
-        assert isinstance(page, int) and page > 0, \
-            "Page must be an integer greater than 0"
-        assert isinstance(page_size, int) and page_size > 0, \
-            "Page size must be an integer greater than 0"
+        assert isinstance(page, int) and page > 0
+        assert isinstance(page_size, int) and page_size > 0
 
         start_index, end_index = self.index_range(page, page_size)
         dataset = self.dataset()
