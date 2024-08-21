@@ -55,7 +55,7 @@ class Server:
         assert isinstance(page_size, int) and page_size > 0
         start_index, end_index = self.index_range(page, page_size)
         dataset = self.dataset()
-        data = self.get_page()
+        data = self.get_page(page, page_size)
         total_pages = math.ceil(len(dataset) / page_size)
 
         return {
