@@ -40,8 +40,8 @@ class Server:
         return self.__indexed_dataset
 
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
-        '''certain rows are removed from the dataset, the user does
-        not miss items from dataset when changing page.'''
+        """certain rows are removed from the dataset, the user does
+        not miss items from dataset when changing page."""
         assert type(index) == int and index >= 0
         assert type(page_size) == int and index < len(self.indexed_dataset())
         csv = self.indexed_dataset()
