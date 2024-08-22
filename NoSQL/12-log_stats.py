@@ -18,8 +18,7 @@ def nginx_stats():
     for method in methods:
         count = collection.count_documents({"method": method})
         print(f"\tmethod {method}: {count}")
-    status_check = collection.count_documents
-    ({"method": "GET", "path": "/status"})
+    status_check = collection.count_documents({"method": "GET", "path": "/status"})
     print(f"{status_check} status check")
 
 
