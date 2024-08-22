@@ -1,0 +1,2 @@
+// lists collections
+db.school.find().pretty()
