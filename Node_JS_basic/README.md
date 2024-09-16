@@ -1,1 +1,1 @@
-This directory is focused on learning the basics of node.js framework.
+This directory is dedicated to learn and understand nodejs framework.
