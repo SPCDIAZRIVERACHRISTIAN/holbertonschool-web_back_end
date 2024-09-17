@@ -1,4 +1,4 @@
-console.log('Welcome to Holberton School, what is your name?');
+console.log('Welcome to Holberton School, what is your name?\r');
 
 // Capture user input from stdin
 process.stdin.setEncoding('utf8');
@@ -12,6 +12,6 @@ process.stdin.on('data', (input) => {
   console.log(`Your name is: ${name}\r`);
 
   // Display closing message and exit the program
-  console.log('This important software is now closing');
+  console.log('This important software is now closing\r');
   process.exit();
 });
