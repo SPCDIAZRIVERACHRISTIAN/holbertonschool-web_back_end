@@ -1,42 +1,36 @@
 const fs = require('fs');
-const parse = require('csv-parse');
 
 function countStudents(path) {
   try {
-    // Read the CSV file content synchronously
-    const content = fs.readFileSync(path, { encoding: 'utf8' });
+    const listCS = [];
+    const listSWE = [];
 
-    // Parse the CSV content
-    const records = parse(content, {
-      columns: true,
-      skip_empty_lines: true,
-      trim: true,
-    });
+    const data = fs.readFileSync(path, { encoding: 'utf8', flag: 'r' });
+    const rows = data.trim().split('\n');
+    for (let i = 1; i < rows.length; i += 1) {
+      const row = rows[i].split(',');
 
-    // Filter out empty records
-    const validRecords = records.filter((record) => record.firstname && record.field);
-
-    // Count the total number of students
-    const totalStudents = validRecords.length;
-    console.log(`Number of students: ${totalStudents}`);
-
-    // Group students by field
-    const fields = {};
-    validRecords.forEach((record) => {
-      const { field } = record;
-      if (!fields[field]) {
-        fields[field] = [];
-      }
-      fields[field].push(record.firstname);
-    });
-
-    // Log the number of students in each field and their names
-    for (const [field, students] of Object.entries(fields)) {
-      console.log(`Number of students in ${field}: ${students.length}. List: ${students.join(', ')}`);
+      if (row[3] === 'CS') listCS.push(row[0]);
+      else if (row[3] === 'SWE') listSWE.push(row[0]);
     }
+    console.log(`Number of students: ${rows.length - 1}`);
+    console.log(`Number of students in CS: ${listCS.length}. List: ${listCS.join(', ')}`);
+    console.log(`Number of students in SWE: ${listSWE.length}. List: ${listSWE.join(', ')}`);
   } catch (err) {
     throw new Error('Cannot load the database');
   }
+//   fs.createReadStream(path)
+//     .pipe()
+//     .on('data', (row) => {
+//       count += 1;
+//       if (row[3] === 'CS') listCS.push(row[0]);
+//       else if (row[3] === 'SWE') listSWE.push(row[0]);
+//     })
+//     .on('end', () => {
+//       console.log(`Number of students: ${count}`);
+//       console.log(`Number of students in CS: ${listCS.length}. List: ${listCS.join(', ')}`);
+//       console.log(`Number of students in SWE: ${listSWE.length}. List: ${listSWE.join(', ')}`);
+//     });
 }
 
 module.exports = countStudents;
