@@ -9,7 +9,7 @@ process.stdin.on('data', (input) => {
   const name = input.trim();
 
   // Display the inputted name
-  console.log(`Your name is: ${name}\r`);
+  console.log(`Your name is: ${name}`);
 
   // Display closing message and exit the program
   console.log('This important software is now closing');
