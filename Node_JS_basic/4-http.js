@@ -6,6 +6,6 @@ const app = http.createServer((req, res) => {
   res.end();
 });
 
-server.listen(1245);
+app.listen(1245);
 
 module.exports = app;
