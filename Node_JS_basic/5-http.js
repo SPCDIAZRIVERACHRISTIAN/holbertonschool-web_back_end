@@ -13,7 +13,7 @@ const app = http.createServer(async (req, res) => {
       const message = 'This is the list of our students\n';
       try {
         const students = await countStudents(filePath);
-        res.end(`${message}${students}`);
+        res.end(`${message}${students.join('\n')}`);
       } catch (error) {
         res.end(`${message}${error.message}`);
       }
