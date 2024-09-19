@@ -9,17 +9,18 @@ const app = http.createServer(async (req, res) => {
     res.write('Hello Holberton School!');
     res.end();
   } else if (url === '/students') {
-    res.write('This is the list of our students\n');
-      countStudents(filePath).then((data) => {
-        const str = data.join('\n');
-        // console.log(str);
-        res.end(str);
+    if (filePath !== null) {
+      res.write('This is the list of our students\n');
+      try {
+        countStudents(filePath).then((data) => {
+          const str = data.join('\n');
+          res.end(str);
+        });
+      } catch (error) {
+        res.end('Cannot load the database');
+      }
     }
-    );
-    //   res.write(data);
-    // res.end(str);
-}else {
-    // res.writeHead(404, { 'Content-Type': 'text/html' });
+  } else {
     res.write('Not Found');
     res.end();
   }
