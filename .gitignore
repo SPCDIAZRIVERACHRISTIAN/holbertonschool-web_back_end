@@ -2,6 +2,5 @@ node_modules/
 babel*
 .esl*
 main*
-utils*
 __pycache__/
 database.csv
