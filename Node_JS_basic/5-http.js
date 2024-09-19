@@ -10,14 +10,12 @@ const app = http.createServer(async (req, res) => {
     res.end();
   } else if (url === '/students') {
     if (filePath !== null) {
-      res.write('This is the list of our students\n');
+      const message = 'This is the list of our students\n';
       try {
-        countStudents(filePath).then((data) => {
-          const str = data.join('\n');
-          res.end(str);
-        });
+        const students = await countStudents(filePath);
+        res.end(`${message}${students}`);
       } catch (error) {
-        res.end('Cannot load the database');
+        res.end(`${message}${error.message}`);
       }
     }
   } else {
