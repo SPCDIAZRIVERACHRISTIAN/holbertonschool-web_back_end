@@ -1,23 +1,32 @@
 const fs = require('fs');
 
-async function readDatabase(path) {
-  try {
-    const data = await fs.promises.readFile(path, 'utf8');
-    const rows = data.trim().split('\n');
-    const listCS = [];
-    const listSWE = [];
+function readDatabase(path) {
+  return new Promise((resolve, reject) => {
+    fs.readFile(path, 'utf8', (err, data) => {
+      if (err) {
+        reject(Error(err));
+        return;
+      }
+      const content = data.toString().split('\n');
 
-    for (let i = 1; i < rows.length; i += 1) {
-      const row = rows[i].split(',');
+      let students = content.filter((item) => item);
 
-      if (row[3] === 'CS') listCS.push(row[0]);
-      else if (row[3] === 'SWE') listSWE.push(row[0]);
-    }
+      students = students.map((item) => item.split(','));
 
-    return { listCS, listSWE };
-  } catch (error) {
-    throw new Error('Cannot load the database');
-  }
+      const fields = {};
+      for (const i in students) {
+        if (i !== 0) {
+          if (!fields[students[i][3]]) fields[students[i][3]] = [];
+
+          fields[students[i][3]].push(students[i][0]);
+        }
+      }
+
+      delete fields.field;
+
+      resolve(fields);
+    });
+  });
 }
 
 export default readDatabase;
